@@ -7,15 +7,14 @@ import {
 import {createStackNavigator} from 'react-navigation-stack';
 import {createDrawerNavigator} from 'react-navigation-drawer'
 import {createMaterialTopTabNavigator} from 'react-navigation-tabs';
-import CategoriesScreen from '../screens/CategoriesScreen';
-import CategoryMealsScreen from '../screens/CategoryMealsScreen';
-import MealDetailScreen from '../screens/MealDetailScreen';
+
 import SecondTopScreen from './SecondTopScreen';
-import DineScreen from '../screens/DineScreen';
+
 import HeaderButton from '../components/HeaderButton'; 
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import Colors from '../constants/Colors';
-import HeaderIamge from '../components/HeaderImage';
+import StatusScreen from '../screens/StatusScreen';
+import CurrentOrderScreen from '../screens/CurrentOrderScreen';
 //import DesiScreen from '../screens/DesiScreen';
 
 
@@ -36,7 +35,16 @@ import HeaderIamge from '../components/HeaderImage';
       };
     const DineNavigator = createStackNavigator(
         {
-            Dine: DineScreen,
+            CurrentOrderScreen:CurrentOrderScreen,
+            Status: {
+                screen: StatusScreen,
+                // navigationOptions: {
+                //   title: '',
+                //   headerShown: false,
+                // },
+                
+              },
+            
           
           //MealDetail: MealDetailScreen
         },
@@ -63,17 +71,21 @@ import HeaderIamge from '../components/HeaderImage';
           //MealDetail: MealDetailScreen,
         //   SecondTop:SecondTopScreen,
         //   Pakistani: PakistaniScreen,
-          Categories: {
-            screen: CategoriesScreen,
-            // navigationOptions: {
-            //   title: '',
-            //   headerShown: false,
-            // },
+          // Status: {
+          //   screen: StatusScreen,
+          //   // navigationOptions: {
+          //   //   title: '',
+          //   //   headerShown: false,
+          //   // },
             
+          // },
+          SecondTop:{
+            screen: SecondTopScreen,
+            navigationOptions: {
+                  title: '',
+                  headerShown: false,
+                },
           },
-        //   SecondTop:{
-        //     screen: SecondTopScreen
-        //   },
         //   CategoryMeals: {
         //     screen: CategoryMealsScreen
         //   },
@@ -100,14 +112,14 @@ import HeaderIamge from '../components/HeaderImage';
           },
         },{
           tabBarOptions:{
-            activeTintColor:Colors.accentColor,
-            inactiveTintColor: Colors.themeColor,
+            activeTintColor:Colors.primaryColor,
+            inactiveTintColor: Colors.primaryColor,
             indicatorStyle: {
-              backgroundColor: Colors.accentColor,
+              backgroundColor: Colors.primaryColor,
             }, 
             style: {
               height: 45,
-              backgroundColor: Colors.primaryColor,
+              backgroundColor: Colors.accentColor,
             },
             labelStyle: { fontSize: 14, fontWeight:"bold" },
             
@@ -119,7 +131,7 @@ import HeaderIamge from '../components/HeaderImage';
             TopFavs:{
                 screen: AppNavigator,
                 navigationOptions: {
-                  drawerLabel: 'Delivery',
+                  drawerLockMode: 'locked-closed',
                   // title: '',
                   // headerShown: false,
                   // headerMode: 'none'

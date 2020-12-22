@@ -117,7 +117,7 @@ const ThreeNavigator = createDrawerNavigator(
       ThreeFavs:{
           screen: ThreeTopNavigator,
           navigationOptions: {
-            drawerLabel: 'Menu',
+            drawerLockMode: 'locked-closed',
             // title: '',
             // headerShown: false,
             // headerMode: 'none'

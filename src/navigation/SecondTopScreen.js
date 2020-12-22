@@ -23,21 +23,19 @@ import {
 import {createStackNavigator} from 'react-navigation-stack';
 import {createDrawerNavigator} from 'react-navigation-drawer'
 import {createMaterialTopTabNavigator} from 'react-navigation-tabs';
-import CategoriesScreen from '../screens/CategoriesScreen';
-import CategoryMealsScreen from '../screens/CategoryMealsScreen';
-import MealDetailScreen from '../screens/MealDetailScreen';
-import DineScreen from '../screens/DineScreen';
+import PendingOrderScreen from '../screens/PendingOrderScreen';
+import AcceptedOrderScreen from '../screens/AcceptedOrderScreen';
+import CookingOrderScreen from '../screens/CookingOrderScreen';
+import DeliveredOrderScreen from '../screens/DeliveredOrderScreen';
+import ActiveOrderScreen from '../screens/ActiveOrderScreen';
 import Colors from '../constants/Colors';
-import TandoorScreen from '../screens/TandoorScreen';
-import ChineseScreen from '../screens/ChineseScreen';
-import DealScreen from '../screens/DealScreen';
-import DesiScreen from '../screens/DesiScreen';
-import BbqScreen from '../screens/BbqScreen';
-import HeaderIamge from '../components/HeaderImage';
-import PaymentScreen from '../screens/PaymentScreen'
-import HeaderImageScreen from '../screens/HeaderImageScreen';
-
-
+import  MaterialCommunityIcons  from 'react-native-vector-icons/MaterialCommunityIcons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
+import Icon from 'react-native-vector-icons/Ionicons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+//import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
 
 
 
@@ -60,28 +58,34 @@ import HeaderImageScreen from '../screens/HeaderImageScreen';
         // ),
         headerTitle: ''
       };
-    const DealNavigator = createStackNavigator(
+    const PendingNavigator = createStackNavigator(
         {
            // Deal: DealScreen
             // Categories: {
             //     screen: CategoriesScreen
             //   },
             //HeaderIm: HeaderIamge,
-            
-            CategoryMeals: {
-                screen: CategoryMealsScreen,
-                navigationOptions: {
-                  title: '',
-                  headerShown: false,
-                },
-            },
-            MealDetail:{
-              screen:MealDetailScreen,
-              // navigationOptions: {
-              //   title: '',
-              //   headerShown: true,
-              // },
-            },
+            Pending:{
+              screen:PendingOrderScreen,
+              navigationOptions: {
+                      title: '',
+                      headerShown: false,
+                    },
+            }
+            // CategoryMeals: {
+            //     screen: CategoryMealsScreen,
+            //     navigationOptions: {
+            //       title: '',
+            //       headerShown: false,
+            //     },
+            // },
+            // MealDetail:{
+            //   screen:MealDetailScreen,
+            //   // navigationOptions: {
+            //   //   title: '',
+            //   //   headerShown: true,
+            //   // },
+            // },
            // Products:Products,
             // PaymentScreen: {
             //   screen:PaymentScreen,
@@ -100,23 +104,15 @@ import HeaderImageScreen from '../screens/HeaderImageScreen';
           //defaultNavigationOptions: defaultStackNavOption
         }
       );
-      const DesiNavigator = createStackNavigator(
+      const AcceptedNavigator = createStackNavigator(
         {
-          Desi: {
-            screen: DesiScreen,
+          Accepted:{
+            screen:ActiveOrderScreen,
             navigationOptions: {
-                  title: '',
-                  headerShown: false,
-                },
-          },
-          MealDetail:{
-            screen:MealDetailScreen,
-            // navigationOptions: {
-            //   title: '',
-            //   headerShown: true,
-            // },
-          },
-          
+              title: '',
+              headerShown: false,
+            },
+          }
             
           
           //MealDetail: MealDetailScreen
@@ -127,23 +123,15 @@ import HeaderImageScreen from '../screens/HeaderImageScreen';
         }
       );
       
-      const BbqNavigator = createStackNavigator(
+      const CookingNavigator = createStackNavigator(
         {
-          Bbq: {
-            screen:BbqScreen,
+          Cooking:{
+            screen:CookingOrderScreen,
             navigationOptions: {
               title: '',
               headerShown: false,
             },
-          },
-          MealDetail:{
-            screen:MealDetailScreen,
-            // navigationOptions: {
-            //   title: '',
-            //   headerShown: true,
-            // },
-          },
-         
+          }
           
         },
         {
@@ -151,22 +139,15 @@ import HeaderImageScreen from '../screens/HeaderImageScreen';
           defaultNavigationOptions: defaultStackNavOption
         }
       );
-      const ChineseNavigator = createStackNavigator(
+      const DeliveredNavigator = createStackNavigator(
         {
-            Chinese: {
-              screen: ChineseScreen,
-              navigationOptions: {
-                title: '',
-                headerShown: false,
-              },
+          Delivered:{
+            screen: DeliveredOrderScreen,
+            navigationOptions: {
+              title: '',
+              headerShown: false,
             },
-            MealDetail:{
-              screen:MealDetailScreen,
-              // navigationOptions: {
-              //   title: '',
-              //   headerShown: true,
-              // },
-            },
+          }
            
           
         },
@@ -175,29 +156,7 @@ import HeaderImageScreen from '../screens/HeaderImageScreen';
           defaultNavigationOptions: defaultStackNavOption
         }
       );
-      const TandoorNavigator = createStackNavigator(
-        {
-            Tandoor: {
-              screen: TandoorScreen,
-              navigationOptions: {
-                title: '',
-                headerShown: false,
-              },
-            },
-            MealDetail:{
-              screen:MealDetailScreen,
-              // navigationOptions: {
-              //   title: '',
-              //   headerShown: true,
-              // },
-            },
-            
-        },
-        {
-          //initialRouteName: 'Deal',
-          //defaultNavigationOptions: defaultStackNavOption
-        }
-      );
+     
       // const ShowHeaderNavigator=createStackNavigator({
       //   HeaderImageScreen:HeaderImageScreen,
         
@@ -208,65 +167,103 @@ import HeaderImageScreen from '../screens/HeaderImageScreen';
       const ChooseNavigator = createMaterialTopTabNavigator(  
           {
             
-            Deal: {
-                screen: DealNavigator,
+           Pending: {
+                screen: PendingNavigator,
                 navigationOptions: {
-                  title:"Deals",
+                  //title:"PENDING",
                   //headerTitle: () => <LogoTitle />,
-                
+                  //tabBarLabel:"PENDING",
+                  // tabBarIcon: ({ tintColor }) => (
+                  //   <Icon name="hourglass" size={30} color="#900" />
+                  // )
                   
-                  //tabBarIcon: tabInfo => {
-                    // return <MaterialCommunityIcons name="account" size={24} color={tabInfo.tintColor} />;
-                  //},
-                  
+                  tabBarLabel: 'PENDING',
+                  //tabBarLabelStyle: 
+            
                   // tabBarLabel:
                   //   Platform.OS === 'android' ? (
-                  //     <Text style={{}}>Deals</Text>
+                  //     <Text style={{fontWeight:"bold"}}>PENDING</Text>
                   //   ) : (
-                  //     'Deal'
-                  //   )
+                  //     'PENDING'
+                  //   ),
+                  tabBarIcon: ({focused, tintColor }) => (
+                    <Icon
+                        focused={focused}
+                        name={Platform.OS === 'ios' ? 'ios-home' : 'hourglass-outline'}
+                        style={{ fontSize:25, color: tintColor }}
+            
+                    />
+                  ),
+                  
                 }
               },
-          Desi: {
-            screen: DesiNavigator,
+          Accepted: {
+            screen: AcceptedNavigator,
             navigationOptions: {
-              title:"Pakistani"
+              //title:"ACCEPTED"
+              tabBarLabel: 'ACCEPTED',
+              tabBarIcon: ({focused, tintColor }) => (
+              <FontAwesome
+                focused={focused}
+                name={Platform.OS === 'ios' ? 'ios-home' : 'check'}
+                style={{ fontSize:27, color: tintColor }}
+
+              />
+              )
             }
           },
-          Bbq: {
-            screen: BbqNavigator,
+          Cooking: {
+            screen: CookingNavigator,
             navigationOptions: {
-              title:"BBQ"
+              //title:"COOKING"
+              tabBarLabel: 'COOKING',
+              tabBarIcon: ({focused, tintColor }) => (
+              <MaterialIcons
+                focused={focused}
+                name={Platform.OS === 'ios' ? 'ios-home' : 'outdoor-grill'}
+                style={{ fontSize:30, color: tintColor }}
+
+              />
+              )
             }
           },
-          Chinese: {
-            screen: ChineseNavigator,
+          Delivered: {
+            screen:  DeliveredNavigator,
             navigationOptions: {
-              title:"Chinese"
-            }
-          },
-          Tandoor: {
-            screen: TandoorNavigator,
-            navigationOptions: {
-              title:"Tandoor"
+              //title:"DELIVERED"
+              tabBarLabel: 'DELIVERED',
+              tabBarIcon: ({focused, tintColor }) => (
+              <MaterialIcons
+                focused={focused}
+                name={Platform.OS === 'ios' ? 'ios-home' : 'delivery-dining'}
+                style={{ fontSize:26, color: tintColor }}
+
+              />
+              )
             }
           }
           
+          
         },
         {  
-          initialRouteName: 'Deal',
+          initialRouteName: 'Pending',
           tabBarOptions:{
             activeTintColor:Colors.accentColor,
             inactiveTintColor: Colors.themeColor,
-            scrollEnabled: true,
+            showIcon: true ,
+           // gesturesEnabled: false,
+            swipeEnabled: true,
+            tabBarPosition:"top",
+            //swipeEnabled:false,
+           // scrollEnabled: true,
             //swipeEnabled:true,
             indicatorStyle: {
               backgroundColor: Colors.accentColor,
             }, 
             
-            labelStyle: { fontWeight:"bold", fontSize:15 },
+            labelStyle: { fontWeight:"bold", fontSize:12 },
             style: {
-              height: 50,
+             // height: 100,
               backgroundColor: Colors.primaryColor,
             },
             
@@ -288,7 +285,7 @@ import HeaderImageScreen from '../screens/HeaderImageScreen';
            Favs:{
                 screen: ChooseNavigator,
                 navigationOptions: {
-                 drawerLabel: 'Deal',
+                  drawerLockMode: 'locked-closed',
                   headerShown: false,
                   headerMode: 'none',
                   // style:{flex:2}

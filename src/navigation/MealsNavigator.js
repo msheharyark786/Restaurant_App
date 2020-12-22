@@ -11,13 +11,17 @@ import {createBottomTabNavigator, createMaterialTopTabNavigator} from 'react-nav
 import  MaterialCommunityIcons  from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/Ionicons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import DealsScreen from '../screens/DealsScreen';
 import ActiveOrderScreen from '../screens/ActiveOrderScreen';
 import NewScreen from '../screens/NewScreen';
 import HistoryScreen from '../screens/HistoryScreen';
 import RatingScreen from '../screens/RatingScreen';
 import FirstScreen from '../navigation/FirstScreen';
+import ShoppingCartIcon from '../components/ShoppingCartIcon';
+import UserDetailScreen from '../screens/UserDetailScreen';
+import SecondTopScreen from '../navigation/SecondTopScreen';
 
 //import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 //import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
@@ -73,12 +77,15 @@ import { useSelector, useDispatch } from 'react-redux';
 // };
 const defaultNavOptions = { 
   headerStyle: {
-    backgroundColor: Platform.OS === 'android' ? Colors.orangeColor : ''
+    height:100,
+    backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : ''
   },
+  
   headerTitleStyle: {
-    alignSelf: 'center' ,
+    fontSize:30,
+    //alignSelf: 'center' ,
     fontWeight: 'bold',
-    color:Colors.primaryColor,
+    color:Colors.accentColor,
     fontStyle:'italic'
    
   },
@@ -108,6 +115,7 @@ const defaultNavOptions = {
 const DealsNavigator = createStackNavigator(
   {
     Deals: DealsScreen,
+    UserDetailScreen:UserDetailScreen,
     //MealDetail: MealDetailScreen
   },
   {
@@ -129,31 +137,41 @@ const FirstNavigator = createStackNavigator(
 
     First: {
       navigationOptions: (navData) = {
-        headerTitle: 'RESTAURANTS',
-       
-        
-        // headerStyle:()=>{
-        //   color:Colors.accentColor
-        // },
-        
-    // headerLeft:() =>(
-    //   <HeaderButtons HeaderButtonComponent={HeaderButton}>
-    //     <Item
-    //       title="Menu"
-    //       iconName={Platform.OS === 'android' ? 'md-menu' : 'ios-menu'}
-    //       onPress={() => {
-    //                     navData.navigation.navigate('Cart');
-    //                   }}
-    //     />
-    //   </HeaderButtons>
-    // ),
-    headerRight:()=> (
-      <ShoppingCartIcon />
-    )
+        headerTitle:()=> (
+          <View>
+            <Text style={{fontSize:20,
+            //alignSelf: 'center' ,
+            //fontWeight: 'bold',
+            color:Colors.accentColor,
+            marginBottom:0,
+            fontFamily:'Bitter-ExtraBold'}}>
+            Restaurant 
+        </Text>
+        <Text style={{fontSize:30,
+            //alignSelf: 'center' ,
+            //fontWeight: 'bold',
+            color:Colors.blackColor,
+            //fontStyle:'italic'
+          fontFamily:'Bitter-SemiBoldItalic'
+            }}>
+            Coco Cubano
+        </Text>
+        <Text style={{fontSize:15,
+            color:Colors.accentColor,
+            fontFamily:'Bitter-ExtraBoldItalic'
+            }}>
+            Owner
+        </Text>
+        </View>
+        ),
+        headerRight:()=> (
+       <ShoppingCartIcon />
+        )
       },
       screen:FirstScreen
        
     },
+    
     
     // HeaderIamgeScreen: {
     //   navigationOptions: {
@@ -178,7 +196,7 @@ const FirstNavigator = createStackNavigator(
     //       headerTintColor: '#fff',
     //       //headerShown:false
     //   }
-    // },
+   // },
     // ThreeTopScreen:{
     //   navigationOptions: (navData) = {
     //     headerTitle: "RESTAURANT MENU",
@@ -190,6 +208,7 @@ const FirstNavigator = createStackNavigator(
     // screen:ThreeTopScreen,
 
     // },
+    UserDetailScreen:UserDetailScreen,
     // Cart:CartScreen,
     // PaymentScreen:PaymentScreen
     // SecondTop:{
@@ -222,6 +241,7 @@ const FirstNavigator = createStackNavigator(
 const NewNavigator = createStackNavigator(
   {
     New: NewScreen,
+    UserDetailScreen:UserDetailScreen,
     //MealDetail: MealDetailScreen
   },
   {
@@ -233,6 +253,7 @@ const NewNavigator = createStackNavigator(
 const HisNavigator= createStackNavigator(
   {
     History: HistoryScreen,
+    UserDetailScreen:UserDetailScreen,
    // MealDetail: MealDetailScreen
   },
   {
@@ -243,7 +264,8 @@ const HisNavigator= createStackNavigator(
 
 const RatingNavigator = createStackNavigator(
   {
-    Rating:RatingScreen
+    Rating:RatingScreen,
+    UserDetailScreen:UserDetailScreen,
   },
   {
     // initialRouteName: 'Categories',
@@ -264,7 +286,7 @@ const TabNavigator = createBottomTabNavigator({
       tabBarIcon: ({focused, tintColor }) => (
           <Icon
               focused={focused}
-              name={Platform.OS === 'ios' ? 'ios-home' : 'fas fa-alarm-clock'}
+              name={Platform.OS === 'ios' ? 'alarm-clock' : 'alarm-sharp'}
               style={{ fontSize:27, color: tintColor }}
           />
       )}
@@ -276,7 +298,7 @@ const TabNavigator = createBottomTabNavigator({
       tabBarIcon: ({focused, tintColor }) => (
           <MaterialIcons
               focused={focused}
-              name={Platform.OS === 'ios' ? 'ios-home' : 'bookmarks'}
+              name={Platform.OS === 'ios' ? 'ios-home' : 'room-service'}
               style={{ fontSize:30, color: tintColor }}
   
           />
@@ -287,9 +309,9 @@ const TabNavigator = createBottomTabNavigator({
     navigationOptions : {
       tabBarLabel: 'New',
       tabBarIcon: ({focused, tintColor }) => (
-          <MaterialIcons
+          <SimpleLineIcons
               focused={focused}
-              name={Platform.OS === 'ios' ? 'ios-home' : 'AddCircleOutline'}
+              name={Platform.OS === 'ios' ? 'ios-home' : 'plus'}
               style={{ fontSize:30, color: tintColor }}
   
           />
@@ -300,7 +322,7 @@ const TabNavigator = createBottomTabNavigator({
     navigationOptions : {
       tabBarLabel: 'History',
       tabBarIcon: ({focused, tintColor }) => (
-          <Icon
+          <FontAwesome
               focused={focused}
               name={Platform.OS === 'ios' ? 'ios-home' : 'history'}
               style={{ fontSize:30, color: tintColor }}
@@ -313,9 +335,9 @@ const TabNavigator = createBottomTabNavigator({
     navigationOptions : {
       tabBarLabel: 'Ratings',
       tabBarIcon: ({focused, tintColor }) => (
-          <Icon
+          <MaterialIcons
               focused={focused}
-              name={Platform.OS === 'ios' ? 'ios-home' : 'stars'}
+              name={Platform.OS === 'ios' ? 'ios-home' : 'rate-review'}
               style={{ fontSize:30, color: tintColor }}
   
           />
@@ -399,7 +421,7 @@ const MainNavigator = createDrawerNavigator(
     //   }},
     MealsFavs: {
       navigationOptions: {
-        drawerLabel: 'Home',
+        drawerLockMode: 'locked-closed',
         title: '',
         headerShown: false,
         headerMode: 'none'
