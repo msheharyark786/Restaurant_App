@@ -40,19 +40,6 @@ DealsScreen.navigationOptions = navData => {
         headerRight:()=> (
        <ShoppingCartIcon />
         )
-     // },
-      // headerTitle: 'Deals ',
-      // headerLeft: ()=>null
-      //   <HeaderButtons HeaderButtonComponent={HeaderButton}>
-      //     <Item
-      //       title="Menu"
-      //       iconName="ios-menu"
-      //       onPress={() => {
-      //         navData.navigation.toggleDrawer();
-      //       }}
-      //     />
-      //   </HeaderButtons>
-      // )
     };
   };
 

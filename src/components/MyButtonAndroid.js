@@ -1,7 +1,7 @@
 import React from 'react'
 import { Text, StyleSheet, TouchableNativeFeedback, View, TouchableOpacity, Platform} from 'react-native';
 import Colors from '../constants/Colors';
-// import Colors from '../Constants/Colors';
+
 
 
 function My_Buttons(props) {
@@ -31,25 +31,16 @@ const styles=StyleSheet.create({
         paddingHorizontal:60,
         borderRadius:25,
         marginTop: 50,
-        // width:20,
-        // height:40,
         
     },
     buttonContainer:{
-        // width:5,
-        // height:100,
         borderRadius:10,
-        // overflow:'hidden'
-
     },
     buttonText:{
         color: 'white',
-        //fontFamily:'',
-        //fontStyle:'italic',
         fontSize:17,
         fontWeight:'bold',
-        // justifyContent:'center',
-        // alignItems:'center'
+  
     }
 
 })

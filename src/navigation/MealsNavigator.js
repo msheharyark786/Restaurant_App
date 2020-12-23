@@ -22,6 +22,9 @@ import FirstScreen from '../navigation/FirstScreen';
 import ShoppingCartIcon from '../components/ShoppingCartIcon';
 import UserDetailScreen from '../screens/UserDetailScreen';
 import SecondTopScreen from '../navigation/SecondTopScreen';
+import LoginScreen from '../screens/LoginScreen';
+import SplashScreen from '../screens/SplashScreen';
+import SignupScreen from '../screens/SignupScreen';
 
 //import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 //import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
@@ -399,26 +402,28 @@ const TabNavigator = createBottomTabNavigator({
 
 const MainNavigator = createDrawerNavigator(
   {
-    // SplashScreen: {
-    //   screen: SplashScreen,
-    //   navigationOptions: {
-    //     title: '',
-    //     headerShown: false,
-    //   }},
-    //   LoginScreen:{
-    //     screen: LoginScreen,
-    //     navigationOptions: {
-    //     title: '',
-    //     headerShown: false,
-    //     headerMode: 'none'
-    //   }},
-    //   SignupScreen:{
-    //     screen: SignupScreen,
-    //     navigationOptions: {
-    //     title: '',
-    //     headerShown: false,
-    //     headerMode: 'none'
-    //   }},
+    SplashScreen: {
+      screen: SplashScreen,
+      navigationOptions: {
+        title: '',
+        headerShown: false,
+      }},
+
+      LoginScreen:{
+        screen: LoginScreen,
+        navigationOptions: {
+        title: '',
+        headerShown: false,
+        headerMode: null
+      }},
+      
+      SignupScreen:{
+        screen: SignupScreen,
+        navigationOptions: {
+        title: '',
+        headerShown: false,
+        headerMode: null
+      }},
     MealsFavs: {
       navigationOptions: {
         drawerLockMode: 'locked-closed',
