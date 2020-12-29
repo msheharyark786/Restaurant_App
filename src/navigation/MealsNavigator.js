@@ -25,7 +25,7 @@ import SecondTopScreen from '../navigation/SecondTopScreen';
 import LoginScreen from '../screens/LoginScreen';
 import SplashScreen from '../screens/SplashScreen';
 import SignupScreen from '../screens/SignupScreen';
-
+//import BottomSheetScreen from '../components/BottomSheetScreen';
 //import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 //import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
@@ -42,6 +42,7 @@ import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import Colors from '../constants/Colors';
 
 import { useSelector, useDispatch } from 'react-redux';
+// import bottomSheet from '../components/bottomSheet';
 //import { Header } from 'react-native/Libraries/NewAppScreen';
 
 
@@ -165,10 +166,13 @@ const FirstNavigator = createStackNavigator(
             }}>
             Owner
         </Text>
+        
         </View>
+        
         ),
         headerRight:()=> (
-       <ShoppingCartIcon />
+          <ShoppingCartIcon />
+      
         )
       },
       screen:FirstScreen
@@ -402,28 +406,28 @@ const TabNavigator = createBottomTabNavigator({
 
 const MainNavigator = createDrawerNavigator(
   {
-    SplashScreen: {
-      screen: SplashScreen,
-      navigationOptions: {
-        title: '',
-        headerShown: false,
-      }},
+    // SplashScreen: {
+    //   screen: SplashScreen,
+    //   navigationOptions: {
+    //     title: '',
+    //     headerShown: false,
+    //   }},
 
-      LoginScreen:{
-        screen: LoginScreen,
-        navigationOptions: {
-        title: '',
-        headerShown: false,
-        headerMode: null
-      }},
+    //   LoginScreen:{
+    //     screen: LoginScreen,
+    //     navigationOptions: {
+    //     title: '',
+    //     headerShown: false,
+    //     headerMode: null
+    //   }},
       
-      SignupScreen:{
-        screen: SignupScreen,
-        navigationOptions: {
-        title: '',
-        headerShown: false,
-        headerMode: null
-      }},
+    //   SignupScreen:{
+    //     screen: SignupScreen,
+    //     navigationOptions: {
+    //     title: '',
+    //     headerShown: false,
+    //     headerMode: null
+    //   }},
     MealsFavs: {
       navigationOptions: {
         drawerLockMode: 'locked-closed',

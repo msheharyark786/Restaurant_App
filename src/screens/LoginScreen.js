@@ -29,7 +29,7 @@ const LoginScreen = (props) => {
 
 
   const handleLogin=()=>{
-    console.log("Handle Login")
+    //console.log("Handle Login")
 
     var checkEmail = "xyz@gmail.com"; 
     var checkPassword = "12345";
@@ -37,7 +37,7 @@ const LoginScreen = (props) => {
       if((email== checkEmail ) && (password== checkPassword))
         {
           //showLoader();
-          console.log("If part")
+         // console.log("If part")
           props.navigation.navigate({
             routeName:'Active'
           })
@@ -45,7 +45,7 @@ const LoginScreen = (props) => {
         }
       
       else{
-          console.log("else part ,  This is Incorrect...")
+          //console.log("else part ,  This is Incorrect...")
           alert("Please write correct email or password")
       }
 
@@ -58,7 +58,7 @@ const LoginScreen = (props) => {
 
   return (
     <View style={styles.container}>
-      <Text style={{ alignItems:'center', fontSize:20, fontWeight:'bold', color:'#EE0202' }}> Login Please! </Text>
+      <Text style={{ alignSelf: 'center',marginTop:20 , fontSize:20, fontFamily:'Bitter-ExtraBold', color:'#EE0202' }}> Login Please! </Text>
 
     {/* <View style={styles.spinnerv}>
     {

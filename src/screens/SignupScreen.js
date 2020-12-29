@@ -24,7 +24,7 @@ const SignupScreen = (props) => {
 
   const handleSignupButton = () => {
 
-    console.log("handleSignupButton")
+    //console.log("handleSignupButton")
 
     if (!userName) {
       alert('Please enter userName');
@@ -43,7 +43,7 @@ const SignupScreen = (props) => {
       return;
     }
 
-    console.log(email , password, userName, phoneNumber)
+    //console.log(email , password, userName, phoneNumber)
 
     if((email !=null) && (password !=null) && (phoneNumber!=null) && (userName !=null))
     {
