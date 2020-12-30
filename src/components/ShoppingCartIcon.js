@@ -19,7 +19,8 @@ import * as Animatable from 'react-native-animatable';
 import { BottomSheet } from 'react-native-btr';
 import { useSelector, useDispatch } from 'react-redux';
 import { connect } from 'react-redux'
-import Icon from 'react-native-vector-icons/Ionicons'
+import Icon from 'react-native-vector-icons/Ionicons';
+import Entypo from 'react-native-vector-icons/Entypo';
 import Octicons from 'react-native-vector-icons/Octicons'
 //import { Colors } from "react-native/Libraries/NewAppScreen";
 import UserDetailScreen from '../screens/UserDetailScreen';
@@ -115,12 +116,14 @@ const ShoppingCartIcon = (props) => {
           <View style={styles.bottomNavigationView}>
             <View
               style={{
-                flex: 1,
+                //flex: 1,
                 flexDirection: 'column',
-                justifyContent: 'space-between',
+                marginTop:10,
+                marginLeft:10
+                //justifyContent: 'space-between',
               }}>
               <View>
-            <Text style={{fontSize:20,
+            <Text style={{fontSize:25,
             //alignSelf: 'center' ,
             //fontWeight: 'bold',
             color:Colors.accentColor,
@@ -128,7 +131,7 @@ const ShoppingCartIcon = (props) => {
             fontFamily:'Bitter-ExtraBold'}}>
             Restaurant 
         </Text>
-        <Text style={{fontSize:30,
+        <Text style={{fontSize:35,
             //alignSelf: 'center' ,
             //fontWeight: 'bold',
             color:Colors.blackColor,
@@ -141,12 +144,12 @@ const ShoppingCartIcon = (props) => {
         
         </View>
               <View style={{ flex: 1, flexDirection: 'row' }}>
-              <View >
-                <Icon name="eye"  />
+              <View style={{}}>
+                <Entypo name="location-pin" color={Colors.accentColor} size={25} textAlign= "right"  />
                 <Text >Gulberg 3, Lahore</Text>
               </View>
               <View >
-                <Icon name="eye"/>
+                <Entypo name="phone" color={Colors.accentColor} size={25} />
                 <Text >+93249472294</Text>
               </View>
                 {/* <SocialIcon
@@ -283,7 +286,8 @@ const styles = StyleSheet.create({
       backgroundColor: '#fff',
       width: '100%',
       height: 350,
-      justifyContent: 'center',
-      alignItems: 'center',
+      
+     // justifyContent: 'center',
+      //alignItems: 'center',
     },
 });
