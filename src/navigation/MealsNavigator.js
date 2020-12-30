@@ -25,6 +25,8 @@ import SecondTopScreen from '../navigation/SecondTopScreen';
 import LoginScreen from '../screens/LoginScreen';
 import SplashScreen from '../screens/SplashScreen';
 import SignupScreen from '../screens/SignupScreen';
+import PrivacyPolicyScreen from '../screens/PrivacyPolicyScreen';
+import TermConditionScreen from '../screens/TermConditionScreen';
 //import BottomSheetScreen from '../components/BottomSheetScreen';
 //import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 //import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
@@ -178,6 +180,8 @@ const FirstNavigator = createStackNavigator(
       screen:FirstScreen
        
     },
+    PrivacyPolicy: PrivacyPolicyScreen,
+    TermCondition: TermConditionScreen,
     
     
     // HeaderIamgeScreen: {
@@ -406,28 +410,28 @@ const TabNavigator = createBottomTabNavigator({
 
 const MainNavigator = createDrawerNavigator(
   {
-    // SplashScreen: {
-    //   screen: SplashScreen,
-    //   navigationOptions: {
-    //     title: '',
-    //     headerShown: false,
-    //   }},
+    SplashScreen: {
+      screen: SplashScreen,
+      navigationOptions: {
+        title: '',
+        headerShown: false,
+      }},
 
-    //   LoginScreen:{
-    //     screen: LoginScreen,
-    //     navigationOptions: {
-    //     title: '',
-    //     headerShown: false,
-    //     headerMode: null
-    //   }},
+      LoginScreen:{
+        screen: LoginScreen,
+        navigationOptions: {
+        title: '',
+        headerShown: false,
+        headerMode: null
+      }},
       
-    //   SignupScreen:{
-    //     screen: SignupScreen,
-    //     navigationOptions: {
-    //     title: '',
-    //     headerShown: false,
-    //     headerMode: null
-    //   }},
+      SignupScreen:{
+        screen: SignupScreen,
+        navigationOptions: {
+        title: '',
+        headerShown: false,
+        headerMode: null
+      }},
     MealsFavs: {
       navigationOptions: {
         drawerLockMode: 'locked-closed',

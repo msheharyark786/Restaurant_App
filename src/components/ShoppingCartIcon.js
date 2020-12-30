@@ -3,11 +3,13 @@ import {
     View,
     Text,
     StyleSheet,
-    Platform
+    Platform,
+    TouchableOpacity,
 } from "react-native";
 import {useTheme} from 'react-native-paper';
 //import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Feather from 'react-native-vector-icons/Feather';
 //import BottomSheet from 'react-native-bottomsheet-reanimated';
 import { SocialIcon } from 'react-native-elements';
@@ -21,6 +23,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { connect } from 'react-redux'
 import Icon from 'react-native-vector-icons/Ionicons';
 import Entypo from 'react-native-vector-icons/Entypo';
+import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import Octicons from 'react-native-vector-icons/Octicons'
 //import { Colors } from "react-native/Libraries/NewAppScreen";
 import UserDetailScreen from '../screens/UserDetailScreen';
@@ -143,15 +146,62 @@ const ShoppingCartIcon = (props) => {
         
         
         </View>
-              <View style={{ flex: 1, flexDirection: 'row' }}>
-              <View style={{}}>
-                <Entypo name="location-pin" color={Colors.accentColor} size={25} textAlign= "right"  />
-                <Text >Gulberg 3, Lahore</Text>
+              <View style={{ flex:1}}>
+              <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', marginTop:15}}>
+              
+                <Entypo name="location-pin" color={Colors.accentColor} size={20}  />
+      <Text style={{fontSize:15, color:Colors.themeColor}}>Gulberg 3, Lahore</Text>
+                
               </View>
-              <View >
-                <Entypo name="phone" color={Colors.accentColor} size={25} />
-                <Text >+93249472294</Text>
+              <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', marginTop:25}}>
+                <Entypo name="phone" color={Colors.accentColor} size={20}  />
+                <Text style={{fontSize:15, color:Colors.themeColor}}>+93249472294</Text>
               </View>
+
+              <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', marginTop:40}}>
+                <Text style={{fontSize:13, color:Colors.accentColor}}>Logged In: </Text>
+                <Text style={{fontSize:15}}>M. Sheharyar Khan</Text>
+                <Text style={{fontSize:13, color:Colors.accentColor}}>      Designation: </Text>
+                <Text style={{fontSize:15}}>Owner</Text>
+              </View>
+
+              <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', marginTop:50}}>
+        <TouchableOpacity style={styles.button}  onPress={() => {
+        props.navigation.navigate({
+          routeName: 'TermCondition'
+        });
+        }} >
+        <FontAwesome name='ban' size={25}
+        color={Colors.accentColor} />
+        <Text style={styles.textDatas}>Terms & Conditions</Text></TouchableOpacity>
+        </View>
+
+
+        <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', marginTop:50}}>
+        <TouchableOpacity style={styles.button}  onPress={() => {
+        props.navigation.navigate({
+          routeName: 'PrivacyPolicy',
+        });
+         }} >
+        <MaterialIcons name='privacy-tip' size={25}
+        color={Colors.accentColor} />
+        <Text style={styles.textDatas}>Privacy Policy</Text></TouchableOpacity>
+        </View>
+
+
+        <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', marginTop:50}}> 
+        <TouchableOpacity style={styles.button}  onPress={() => {
+        props.navigation.navigate({
+          routeName: 'LoginScreen',
+        });
+      }} >
+        <SimpleLineIcons name="logout" size={25} 
+      color={Colors.accentColor} />
+      <Text style={styles.textDatas}>Logout</Text></TouchableOpacity>   
+      </View>
+    
+      
+      {/* </View> */}
                 {/* <SocialIcon
                   //Social Icon using react-native-elements
                   type="twitter"
@@ -211,6 +261,17 @@ const styles = StyleSheet.create({
       // shadowRadius: 5,
       // shadowOpacity: 0.4,
     },
+    line:{
+      
+      padding: 5,
+      paddingLeft:15,
+      borderColor:"#b0bec5",
+      borderWidth:0.5,
+    },
+    button: {
+      paddingTop: 15,
+      flexDirection: 'row',
+    },
     header: {
       backgroundColor: '#FFFFFF',
       shadowColor: '#333333',
@@ -242,6 +303,11 @@ const styles = StyleSheet.create({
       height: 30,
       marginBottom: 10,
     },
+    textDatas:{
+      marginLeft:15,
+      fontSize:19
+    },
+  
     panelButton: {
       padding: 13,
       borderRadius: 10,
