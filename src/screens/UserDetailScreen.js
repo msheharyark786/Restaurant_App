@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
-import ShoppingCartIcon from '../components/ShoppingCartIcon';
+//import ShoppingCartIcon from '../components/ShoppingCartIcon';
 import Colors from '../constants/Colors';
 import HeaderButton from '../components/HeaderButton';
 
