@@ -410,28 +410,28 @@ const TabNavigator = createBottomTabNavigator({
 
 const MainNavigator = createDrawerNavigator(
   {
-    // SplashScreen: {
-    //   screen: SplashScreen,
-    //   navigationOptions: {
-    //     title: '',
-    //     headerShown: false,
-    //   }},
+    SplashScreen: {
+      screen: SplashScreen,
+      navigationOptions: {
+        title: '',
+        headerShown: false,
+      }},
 
-    //   LoginScreen:{
-    //     screen: LoginScreen,
-    //     navigationOptions: {
-    //     title: '',
-    //     headerShown: false,
-    //     headerMode: null
-    //   }},
+      LoginScreen:{
+        screen: LoginScreen,
+        navigationOptions: {
+        title: '',
+        headerShown: false,
+        headerMode: null
+      }},
       
-    //   SignupScreen:{
-    //     screen: SignupScreen,
-    //     navigationOptions: {
-    //     title: '',
-    //     headerShown: false,
-    //     headerMode: null
-    //   }},
+      SignupScreen:{
+        screen: SignupScreen,
+        navigationOptions: {
+        title: '',
+        headerShown: false,
+        headerMode: null
+      }},
     MealsFavs: {
       navigationOptions: {
         drawerLockMode: 'locked-closed',
